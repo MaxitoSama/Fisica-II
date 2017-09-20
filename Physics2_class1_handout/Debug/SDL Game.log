@@ -1,0 +1,12 @@
+﻿  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleSceneIntro.cpp
+  ModuleRender.cpp
+  ModulePlayer.cpp
+  ModulePhysics.cpp
+c:\users\marcgiu\desktop\physics2_class1_handout\modulephysics.cpp(46): error C2143: syntax error: missing ')' before 'constant'
+  ModuleInput.cpp
+  ModuleAudio.cpp
+  Main.cpp
+  Application.cpp
+  Generating Code...
