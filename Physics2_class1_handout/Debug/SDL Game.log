@@ -1,12 +1,5 @@
-﻿  ModuleWindow.cpp
-  ModuleTextures.cpp
-  ModuleSceneIntro.cpp
-  ModuleRender.cpp
-  ModulePlayer.cpp
-  ModulePhysics.cpp
-c:\users\marcgiu\desktop\physics2_class1_handout\modulephysics.cpp(46): error C2143: syntax error: missing ')' before 'constant'
-  ModuleInput.cpp
-  ModuleAudio.cpp
-  Main.cpp
-  Application.cpp
-  Generating Code...
+﻿  ModulePhysics.cpp
+d:\github\fisica-ii\physics2_class1_handout\modulephysics.cpp(151): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\limits(210): warning C4577: si se usa 'noexcept' sin ningún modo de control de excepciones especificado, la finalización de la excepción no está garantizada. Especifique /EHsc
+  SDL Game.vcxproj -> D:\Github\Fisica-II\Physics2_class1_handout\Debug\Physics 2 Class 1 Handout.exe
+  SDL Game.vcxproj -> D:\Github\Fisica-II\Physics2_class1_handout\Debug\Physics 2 Class 1 Handout.pdb (Full PDB)

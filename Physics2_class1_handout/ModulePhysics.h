@@ -6,7 +6,7 @@
 #define METER_PER_PIXEL 0.02
 
 #define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER*m))
-#define PIXEL_TO_METERS(p) ((float METER_PER_PIXEL*p)
+#define PIXEL_TO_METERS(p) ((float) METER_PER_PIXEL*p)
 
 class b2World;
 
@@ -20,6 +20,7 @@ public:
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
+	void CircleMouse();
 
 private:
 
