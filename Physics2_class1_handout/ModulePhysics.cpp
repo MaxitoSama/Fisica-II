@@ -49,11 +49,8 @@ bool ModulePhysics::Start()
 	b2BodyDef body_def_circle;
 	b2BodyDef body_def_box;
 
-	body_def_circle.type = b2_staticBody;
-	body_def_box.type = b2_staticBody;
-
 	body_def_circle.position.Set(PIXEL_TO_METERS(SCREEN_WIDTH/2), PIXEL_TO_METERS(SCREEN_HEIGHT/2));
-	body_def_box.position.Set(PIXEL_TO_METERS(0.0f), PIXEL_TO_METERS(1100));
+	body_def_box.position.Set(PIXEL_TO_METERS(0.0f), PIXEL_TO_METERS(1100.0f));
 
 	//We use the world deffined to create the body
 	b2Body* body_circle;
@@ -70,7 +67,7 @@ bool ModulePhysics::Start()
 	box.SetAsBox(PIXEL_TO_METERS(SCREEN_WIDTH), 10.0f);
 
 	body_circle->CreateFixture(&circle, 0.0f);
-	body_box->CreateFixture(&box, 0.0f);
+	body_box->CreateFixture(&box, 100.0f);
 
 	return true;
 }
@@ -118,9 +115,20 @@ update_status ModulePhysics::PostUpdate()
 				case b2Shape::e_polygon:
 				{
 					b2PolygonShape* shape = (b2PolygonShape*)f->GetShape();
-					b2Vec2 pos = f->GetBody()->GetPosition();
-					SDL_Rect rect = { METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y),METERS_TO_PIXELS(100.0f),METERS_TO_PIXELS(100.0f)};
-					App->renderer->DrawQuad(rect,0, 255, 255, 255,true);
+					int32 count = shape->GetVertexCount();
+					b2Vec2 prev, v;
+
+					for (int32 i = 0; i < count; ++i)
+					{
+						v = b->GetWorldPoint(shape->GetVertex(i));
+						if (i > 0)
+							App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 255, 255);
+
+						prev = v;
+					}
+
+					v = b->GetWorldPoint(shape->GetVertex(0));
+					App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 100, 100);
 				}
 				break;
 
