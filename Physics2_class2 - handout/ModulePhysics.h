@@ -13,6 +13,7 @@
 
 class b2World;
 class b2Body;
+class b2Vec2;
 
 // TODO 6: Create a small class that keeps a pointer to tghe b2Body
 // and has a method to request the position
