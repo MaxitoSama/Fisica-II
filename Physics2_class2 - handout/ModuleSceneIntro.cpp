@@ -1,4 +1,5 @@
 #include "Globals.h"
+#include "p2List.h"
 #include "Application.h"
 #include "ModuleRender.h"
 #include "ModuleSceneIntro.h"
@@ -44,7 +45,8 @@ update_status ModuleSceneIntro::Update()
 	
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		App->physics->Create_Circle(50.0f);
+		App->physics->physbody.PushBack(App->physics->Create_Circle(50.0f));
+		LOG("%d", App->physics->physbody.Count());
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
@@ -58,6 +60,8 @@ update_status ModuleSceneIntro::Update()
 	}
 	
 	// TODO 7: Draw all the circles using "circle" texture
+	for (int i = 0; i < App->physics->physbody.Count(); i++) {
 
+	}
 	return UPDATE_CONTINUE;
 }

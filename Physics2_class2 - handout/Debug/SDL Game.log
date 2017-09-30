@@ -1,11 +1,4 @@
 ﻿  ModuleSceneIntro.cpp
-  ModulePhysics.cpp
-d:\1 marc\universitat\aa_videojocs\github\fisica-ii\physics2_class2 - handout\box2d\box2d\common\b2math.h(54): warning C4099: 'b2Vec2': type name first seen using 'class' now seen using 'struct'
-  d:\1 marc\universitat\aa_videojocs\github\fisica-ii\physics2_class2 - handout\box2d\box2d\common\b2math.h(53): note: see declaration of 'b2Vec2'
-d:\1 marc\universitat\aa_videojocs\github\fisica-ii\physics2_class2 - handout\modulephysics.cpp(35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\1 marc\universitat\aa_videojocs\github\fisica-ii\physics2_class2 - handout\modulephysics.cpp(263): warning C4244: '=': conversion from 'int' to 'float32', possible loss of data
-d:\1 marc\universitat\aa_videojocs\github\fisica-ii\physics2_class2 - handout\modulephysics.cpp(264): warning C4244: '=': conversion from 'int' to 'float32', possible loss of data
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\cmath(146): warning C4577: 'noexcept' used with no exception handling mode specified; termination on exception is not guaranteed. Specify /EHsc
-  Application.cpp
-  Generating Code...
-  SDL Game.vcxproj -> D:\1 MARC\Universitat\AA_Videojocs\Github\Fisica-II\Physics2_class2 - handout\Debug\2D Physics - class 2.exe
+d:\github\fisica-ii\physics2_class2 - handout\modulesceneintro.cpp(63): warning C4018: '<': no coinciden signed/unsigned
+  SDL Game.vcxproj -> D:\Github\Fisica-II\Physics2_class2 - handout\Debug\2D Physics - class 2.exe
+  SDL Game.vcxproj -> D:\Github\Fisica-II\Physics2_class2 - handout\Debug\2D Physics - class 2.pdb (Full PDB)

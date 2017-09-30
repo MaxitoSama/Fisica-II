@@ -158,7 +158,7 @@ bool ModulePhysics::CleanUp()
 	return true;
 }
 
-void ModulePhysics::Create_Circle(float rad) {
+PhysBody* ModulePhysics::Create_Circle(float rad) {
 	
 	b2BodyDef body;
 	body.type = b2_dynamicBody;
@@ -173,6 +173,8 @@ void ModulePhysics::Create_Circle(float rad) {
 
 	b->CreateFixture(&fixture);
 	LOG("circle");
+
+	return new PhysBody(b);
 }
 void ModulePhysics::Create_Box(float box_w, float box_h){
 
@@ -255,13 +257,16 @@ void ModulePhysics::Create_Chain(){
 	chain_body->CreateFixture(&chain_shape, 1.0f);
 }
 
-b2Vec2 PhysBody::GetPosition(){
+
+b2Vec2 PhysBody::GetPosition() {
 
 	b2Vec2 aux_vec;
 
 	aux_vec = body_pointer->GetPosition();
 	aux_vec.x = (METERS_TO_PIXELS(aux_vec.x));
+	LOG("Circle pos x: %f", aux_vec.x);
 	aux_vec.y = (METERS_TO_PIXELS(aux_vec.y));
+	LOG("Circle pos y: %f", aux_vec.y);
 
 	return aux_vec;
 }
