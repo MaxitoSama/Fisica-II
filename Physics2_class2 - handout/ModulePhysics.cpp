@@ -168,15 +168,13 @@ PhysBody* ModulePhysics::Create_Circle(float rad) {
 
 	b2CircleShape shape;
 	shape.m_radius = PIXEL_TO_METERS(rad);
-	b2FixtureDef fixture;
-	fixture.shape = &shape;
-
-	b->CreateFixture(&fixture);
+	
+	b->CreateFixture(&shape,1.0f);
 	LOG("circle");
 
 	return new PhysBody(b);
 }
-void ModulePhysics::Create_Box(float box_w, float box_h){
+PhysBody* ModulePhysics::Create_Box(float box_w, float box_h){
 
 	// TODO 1: When pressing 2, create a box on the mouse position
 	b2BodyDef body_box_def;
@@ -186,15 +184,16 @@ void ModulePhysics::Create_Box(float box_w, float box_h){
 	b2Body* box_body = world->CreateBody(&body_box_def);
 
 	b2PolygonShape box_shape;
-	box_shape.SetAsBox(PIXEL_TO_METERS(50.0f), PIXEL_TO_METERS(30.0f));
+	box_shape.SetAsBox(PIXEL_TO_METERS(box_w), PIXEL_TO_METERS(box_h));
 	//b2FixtureDef fixture;
 
 	// TODO 2: To have the box behave normally, set fixture's density to 1.0f
 	box_body->CreateFixture(&box_shape, 1.0f);
 	LOG("box");
 
+	return new PhysBody(box_body);
 }
-void ModulePhysics::Create_Chain(){
+PhysBody* ModulePhysics::Create_Chain(){
 
 	// TODO 3: Create a chain shape using those vertices
 	// remember to convert them from pixels to meters!
@@ -254,23 +253,28 @@ void ModulePhysics::Create_Chain(){
 	}
 	chain_shape.CreateLoop(vects, 39);
 
-	chain_body->CreateFixture(&chain_shape, 1.0f);
+	chain_body->CreateFixture(&chain_shape, 4.0f);
+
+	return new PhysBody(chain_body);
 }
 
 
-b2Vec2 PhysBody::GetPosition() {
+void PhysBody::GetPosition(int& x, int&y) {
 
 	b2Vec2 aux_vec;
 
 	aux_vec = body_pointer->GetPosition();
-	aux_vec.x = (METERS_TO_PIXELS(aux_vec.x));
+	x = (METERS_TO_PIXELS(aux_vec.x));
 	LOG("Circle pos x: %f", aux_vec.x);
-	aux_vec.y = (METERS_TO_PIXELS(aux_vec.y));
+	y = (METERS_TO_PIXELS(aux_vec.y));
 	LOG("Circle pos y: %f", aux_vec.y);
 
-	return aux_vec;
 }
 
-void PhysBody::GetRotation(){
+
+void PhysBody::GetRotation(float& angl){
+
+	angl = body_pointer->GetAngle()*57.2957f;
+	LOG("Circle angle %f", angl);
 
 }

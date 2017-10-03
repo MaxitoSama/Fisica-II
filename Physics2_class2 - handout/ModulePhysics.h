@@ -28,8 +28,8 @@ public:
 	PhysBody(b2Body* body):body_pointer(body){}
 	~PhysBody() {}
 
-	b2Vec2 GetPosition();
-	void GetRotation();
+	void GetPosition( int& x, int&y);
+	void GetRotation(float& angl);
 
 private:
 	
@@ -50,8 +50,8 @@ public:
 	bool CleanUp();
 
 	PhysBody* Create_Circle(float rad);
-	void Create_Box(float box_w, float box_h);
-	void Create_Chain();
+	PhysBody* Create_Box(float box_w, float box_h);
+	PhysBody* Create_Chain();
 
 	// TODO 4: Move body creation to 3 functions to create circles, rectangles and chains
 
@@ -61,7 +61,9 @@ private:
 	b2World* world;
 
 public:
-	p2DynArray<PhysBody*> physbody;
+	p2DynArray<PhysBody*> physbody_circle;
+	p2DynArray<PhysBody*> physbody_box;
+	p2DynArray<PhysBody*> physbody_chain;
 };
 
 
