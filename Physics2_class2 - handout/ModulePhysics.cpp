@@ -36,17 +36,25 @@ bool ModulePhysics::Start()
 	int diameter = SCREEN_WIDTH / 2;
 
 	b2BodyDef body;
+	b2BodyDef body2;
 	body.type = b2_staticBody;
+	body2.type = b2_staticBody;
 	body.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+	body2.position.Set(PIXEL_TO_METERS(0), PIXEL_TO_METERS(SCREEN_HEIGHT));
 
 	b2Body* b = world->CreateBody(&body);
+	b2Body* b2 = world->CreateBody(&body2);
 
 	b2CircleShape shape;
+	b2PolygonShape shape2;
 	shape.m_radius = PIXEL_TO_METERS(diameter) * 0.5f;
+	shape2.SetAsBox(100.0f,2.0f);
 
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
+	
 	b->CreateFixture(&fixture);
+	b2->CreateFixture(&shape2,0.0f);
 
 	return true;
 }

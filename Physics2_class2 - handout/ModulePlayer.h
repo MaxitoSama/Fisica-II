@@ -3,6 +3,8 @@
 #include "Globals.h"
 #include "p2Point.h"
 
+class b2Body;
+
 class ModulePlayer : public Module
 {
 public:
@@ -14,5 +16,7 @@ public:
 	bool CleanUp();
 
 public:
+
+	b2Body* player;
 
 };
