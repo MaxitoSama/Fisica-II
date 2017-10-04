@@ -8,7 +8,6 @@
 
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	player = App->physics->Create_Circle(25)->body_pointer;
 	
 }
 
