@@ -22,6 +22,10 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move({ 0,1,0 });
 	App->camera->LookAt({ 0,0,0 });
 
+	vec3 center = { 0,0,0 };
+
+	radius= sqrt(pow(App->camera->Position.x - center.x, 2) + pow(App->camera->Position.y - center.y, 2) + pow(App->camera->Position.z - center.z, 2));
+
 	return ret;
 }
 
@@ -80,9 +84,28 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::MouseRotation()
 {
-	int x;
-	x=App->input->GetMouseXMotion();
-	LOG("%d", x);
+	float x;
+	float frac;
+	float coseno;
+	vec3 camera;
+
+	x=App->input->GetMouseXMotion()/10;
+	if (x != 0)
+	{
+		frac = sinf(x / radius);
+		coseno = cos(frac);
+		camera = { x,0,coseno };
+	}
+	else
+	{
+		camera = { 0,0,0 };
+	}
+
+	
+
+	LOG("impulse: %f", x);
+	App->camera->Move(camera);
+//	App->camera->LookAt({ 0,0,0 });
 
 
 }

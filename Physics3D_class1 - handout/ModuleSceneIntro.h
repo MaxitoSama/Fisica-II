@@ -21,4 +21,5 @@ public:
 	void MouseRotation();
 
 public:
+	float radius;
 };
