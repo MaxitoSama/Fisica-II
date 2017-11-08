@@ -70,13 +70,6 @@ update_status ModuleSceneIntro::Update()
 	third_sphere.wire = true;
 	third_sphere.Render();
 
-	Cylinder first_cylinder(0.5f, 5);
-	first_cylinder.SetPos(0.5f, 2.5f, 0);
-	first_cylinder.SetRotation(90, { 0,0,1 });
-	first_cylinder.color=colore;
-	first_cylinder.wire = true;
-	first_cylinder.Render();
-
 	MouseRotation();
 
 	return UPDATE_CONTINUE;
@@ -90,7 +83,7 @@ void ModuleSceneIntro::MouseRotation()
 	vec3 camera;
 
 	x=App->input->GetMouseXMotion()/10;
-	if (x != 0)
+	if (x != 0 )
 	{
 		frac = sinf(x / radius);
 		coseno = cos(frac);
@@ -105,7 +98,7 @@ void ModuleSceneIntro::MouseRotation()
 
 	LOG("impulse: %f", x);
 	App->camera->Move(camera);
-//	App->camera->LookAt({ 0,0,0 });
+	App->camera->LookAt({ 0,0,0 });
 
 
 }
