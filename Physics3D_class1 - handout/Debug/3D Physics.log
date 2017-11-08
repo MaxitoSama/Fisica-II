@@ -1,6 +1,7 @@
 ﻿  ModuleSceneIntro.cpp
 c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(85): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(89): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(93): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\marcgiu\documents\github\fisica-ii\physics3d_class1 - handout\modulesceneintro.cpp(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   3D Physics.vcxproj -> C:\Users\marcgiu\Documents\GitHub\Fisica-II\Physics3D_class1 - handout\Debug\3D Physics - class1 Handout.exe
   3D Physics.vcxproj -> C:\Users\marcgiu\Documents\GitHub\Fisica-II\Physics3D_class1 - handout\Debug\3D Physics - class1 Handout.pdb (Partial PDB)

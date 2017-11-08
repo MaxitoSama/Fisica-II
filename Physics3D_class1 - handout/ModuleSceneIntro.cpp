@@ -70,7 +70,11 @@ update_status ModuleSceneIntro::Update()
 	third_sphere.wire = true;
 	third_sphere.Render();
 
-	MouseRotation();
+	if(App->input->GetMouseButton(1)==KEY_REPEAT)
+	{
+		MouseRotation();
+	}
+	
 
 	return UPDATE_CONTINUE;
 }
@@ -82,12 +86,18 @@ void ModuleSceneIntro::MouseRotation()
 	float coseno;
 	vec3 camera;
 
-	x=App->input->GetMouseXMotion()/10;
-	if (x != 0 )
+	x=App->input->GetMouseXMotion();
+	if (x > 0 )
 	{
-		frac = sinf(x / radius);
+		frac = sinf(1 / radius);
 		coseno = cos(frac);
-		camera = { x,0,coseno };
+		camera = { frac,0,coseno };
+	}
+	else if (x < 0)
+	{
+		frac = sinf(1 / radius);
+		coseno = cos(frac);
+		camera = { -frac,0,-coseno };
 	}
 	else
 	{
