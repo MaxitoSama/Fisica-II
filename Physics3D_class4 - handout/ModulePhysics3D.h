@@ -28,6 +28,7 @@ public:
 	PhysBody3D* AddBody(const Sphere& sphere, float mass = 1.0f);
 
 	// TODO 1: Code a method that adds a point 2 point contraint between two bodies
+	void AddJoint(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB);
 	// TODO 3: Code a method that adds a hinge constraint between two bodies
 
 private:
@@ -44,6 +45,7 @@ private:
 	p2List<btCollisionShape*> shapes;
 	p2List<PhysBody3D*> bodies;
 	p2List<btDefaultMotionState*> motions;
+	p2List<btTypedConstraint*> constraints;
 };
 
 class DebugDrawer : public btIDebugDraw

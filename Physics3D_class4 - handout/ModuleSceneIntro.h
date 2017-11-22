@@ -24,6 +24,11 @@ public:
 	PhysBody3D* pb_snake[MAX_SNAKE];
 	Sphere s_snake[MAX_SNAKE];
 
+	Sphere* test_snake;
+	PhysBody3D* ptest_snake;
+	Sphere* test_snake_2;
+	PhysBody3D* ptest_snake_2;
+
 	PhysBody3D* pb_snake2[MAX_SNAKE];
 	Sphere s_snake2[MAX_SNAKE];
 };
